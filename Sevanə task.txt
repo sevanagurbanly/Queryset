@@ -1,0 +1,21 @@
+py manage.py shell
+from brands.models import Brand, Product, Store
+
+1) En birinci brand obyektini götür
+brand.objects.first()
+
+2)Ən sonuncu productu götürün. Daha sonra həmin productun brandinin adını ekrana çap edin
+product= Product.objects.last()
+product.name
+
+3)Yeni bir mağaza yaradın. Və bütün productları həmin mağazaya əlavə edin
+ store=Store.objects.create(name="Yeni mağaza")
+ products=Product.objects.all()
+ store.brands.add(products)
+
+4) Bütün mağazaların productlarını sıfırlayın
+Store.brands.clear()
+
+5)Yeni brand yaradın və bütün productların brandini bu brandla əvəz edin
+Brand.objects.create(name="Rolex")
+
